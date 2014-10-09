@@ -367,6 +367,7 @@ trait S extends HasParams with Loggable with UserAgentCalculator {
   // callback.
   private[http] object requestCometVersions extends TransientRequestVar[Set[CometVersionPair]](Set.empty)
 
+  def getCurrentRequestCometVersions = requestCometVersions.get.toSet
 
   private object p_queryLog extends TransientRequestVar(new ListBuffer[(String, Long)])
   private object p_notice extends TransientRequestVar(new ListBuffer[(NoticeType.Value, NodeSeq, Box[String])])
